@@ -1,0 +1,45 @@
+#installing packages
+install.packages("lsr")
+
+#loading the dataset
+data <- c(2.6, 1.9, 2.9, 2.3, 1.5,1.9, 1.9, 1.8, 2.5, 2.1,2.3, 1.7, 1.8, 2.4, 2.2,1.9, 2.9, 3.3, 1.8, 2.1)
+
+#plotting the quantiles
+qqnorm(data)
+qqline(data)
+
+#mean (mu)=2.1
+t.test(data, mu=2.1)
+
+#Hypothesis H0, mu=0
+t.test(data)
+
+#Hypothesis Ha, mu≠0, mu>2.1
+t.test(data, mu=2.1, alternative="greater")
+
+#Hypothesis Ha, mu≠0, mu<2.1
+t.test(data, mu=2.1, alternative="less")
+
+#finding z-score
+#starting with finding the mean
+
+sample.mean <- mean(data)
+print(sample.mean)
+
+#length of the sample
+N <- length(data)
+print(N)
+
+#stating the given from the question
+
+mu.null <- 2.1
+sd.true <- 0.4
+
+#determining the z-score
+sem.true <- sd.true / sqrt(N)
+print(sem.true)
+
+z.score <- (sample.mean - mu.null) / sem.true
+print(z.score)
+
+
